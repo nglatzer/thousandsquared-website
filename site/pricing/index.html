@@ -1,1 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ThousandSquared ACA filing pricing. DIY automated filing starts at $249. Managed filing starts at $495 with human review and one applicable state filing included.">
+<title>Pricing | ThousandSquared</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23102a43'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='30' font-weight='700' fill='white'%3ETS%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --navy:#102a43;
+  --text:#183b56;
+  --muted:#526779;
+  --green:#007c69;
+  --light:#eef7f4;
+  --line:#dce5e9;
+  --bg:#f7f9fb;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:white;
+  line-height:1.65;
+}
+a{color:inherit}
+a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{
+  outline:3px solid #d59020;
+  outline-offset:4px;
+}
+h1,h2,h3,p{margin-top:0}
+h1,h2,h3{line-height:1.15;letter-spacing:-.035em}
+h1{font-size:clamp(2.6rem,5vw,4rem);margin-bottom:22px}
+h2{font-size:clamp(1.9rem,3.5vw,2.7rem);margin-bottom:18px}
+h3{font-size:1.25rem;margin-bottom:14px}
+p{margin-bottom:20px}
+.wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+.skip{position:absolute;top:-100px;left:20px;background:white;padding:12px;z-index:10}
+.skip:focus{top:12px}
+header{border-bottom:1px solid var(--line)}
+.header-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:23px 0;gap:24px;
+}
+.brand{
+  font-weight:800;font-size:1.45rem;
+  letter-spacing:-.055em;text-decoration:none;white-space:nowrap;
+}
+.brand span{color:var(--green)}
+nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:.9rem;font-weight:600}
+nav a:hover{color:var(--green)}
+nav a[aria-current="page"]{color:var(--green)}
+.button{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border:1px solid transparent;border-radius:7px;
+  text-decoration:none;font-size:.95rem;font-weight:700;line-height:1.4;
+}
+.primary{background:var(--green);color:white}
+.primary:hover{background:#005f51;color:white}
+.secondary{border-color:var(--line);background:white}
+.secondary:hover{background:var(--bg)}
+nav .button{padding:10px 16px}
+.hero{
+  padding:65px 0 58px;
+  background:linear-gradient(135deg,#f4f8fa,#edf6f2);
+  text-align:center;
+}
+.hero .intro{max-width:780px;margin:auto}
+.eyebrow{
+  color:var(--green);font-size:.76rem;font-weight:800;
+  letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;
+}
+.lead{color:var(--muted);font-size:1.1rem}
+section{padding:65px 0}
+.soft{background:var(--bg)}
+.section-intro{max-width:750px;margin-bottom:30px}
+.section-intro p{color:var(--muted)}
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.plan{
+  padding:32px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  display:flex;flex-direction:column;
+  background:white;
+}
+.plan.managed{border-color:#b7d8cc}
+.plan-label{
+  display:inline-block;align-self:flex-start;
+  padding:5px 10px;border-radius:5px;background:var(--light);
+  color:var(--green);font-size:.76rem;font-weight:700;margin-bottom:18px;
+}
+.plan h2{font-size:1.85rem}
+.description{color:var(--muted);min-height:82px}
+.start{color:var(--muted);font-size:.85rem;margin:0}
+.price{font-size:3rem;line-height:1.2;letter-spacing:-.045em;font-weight:800;margin:5px 0 8px}
+.price-note{font-size:.9rem;color:var(--muted);margin-bottom:23px}
+.plan .button{width:100%;margin-bottom:28px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;text-align:left;font-size:.9rem}
+caption{text-align:left;font-weight:700;font-size:1rem;margin-bottom:12px}
+th{
+  color:var(--muted);font-size:.75rem;
+  font-weight:700;background:var(--bg);
+}
+th,td{padding:12px 9px;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{padding-left:0}
+th:last-child,td:last-child{text-align:right;padding-right:0}
+th{padding-left:9px!important;padding-right:9px!important}
+.rate,.minimum{white-space:nowrap}
+.table-note{font-size:.82rem;color:var(--muted);margin:14px 0 26px}
+.included-title{padding-top:22px;border-top:1px solid var(--line);font-size:1rem}
+.features{padding-left:20px;margin:0}
+.features li{padding:5px 0;font-size:.92rem}
+.features li::marker{color:var(--green)}
+.small{font-size:.85rem;color:var(--muted)}
+.responsibility{
+  margin:25px 0 0;padding:17px;
+  background:var(--bg);border-radius:7px;
+  font-size:.85rem;color:var(--muted);
+}
+.calculator{
+  padding:32px;background:white;
+  border:1px solid var(--line);border-radius:12px;
+}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:start}
+label{display:block;font-size:.9rem;font-weight:700;margin-bottom:9px}
+input{
+  width:100%;padding:13px;
+  font:inherit;border:1px solid #aabac6;border-radius:7px;
+  color:var(--text);background:white;
+}
+.help{font-size:.85rem;color:var(--muted);margin-top:10px}
+.results{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.result{padding:22px;background:var(--light);border-radius:9px}
+.result h3{font-size:1rem;margin-bottom:10px}
+.total{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;display:block}
+.detail{font-size:.8rem;color:var(--muted);display:block;margin-top:9px}
+.calc-note{margin:23px 0 0;font-size:.85rem;color:var(--muted)}
+.error{color:#9c2929;font-size:.85rem;min-height:1.5em;margin:10px 0 0}
+.states{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.state-card{border:1px solid var(--line);border-radius:12px;padding:28px}
+.state-card p{color:var(--muted)}
+.state-card table{font-size:.85rem}
+.state-note{
+  margin-top:25px;padding:22px;
+  border-left:3px solid var(--green);background:var(--light);
+  font-size:.9rem;
+}
+.state-note p:last-child{margin-bottom:0}
+.faq{max-width:850px}
+details{border-bottom:1px solid var(--line);padding:20px 0}
+summary{cursor:pointer;font-weight:700;font-size:1rem}
+details p{color:var(--muted);margin:16px 0 0;font-size:.95rem}
+.contact{background:var(--navy);color:white}
+.contact-row{display:flex;align-items:center;justify-content:space-between;gap:35px}
+.contact p{color:#d0dce6;max-width:630px;margin-bottom:0}
+.contact h2{max-width:650px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
+.contact .secondary{background:transparent;border-color:#8196a7;color:white}
+.contact .secondary:hover{background:#23445e}
+footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer-row p{margin:0}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{text-underline-offset:4px}
+@media(max-width:950px){
+  .header-row{align-items:flex-start}
+  nav{justify-content:flex-end;gap:14px}
+  .calc-grid{grid-template-columns:1fr}
+  .contact-row{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:760px){
+  .wrap{width:calc(100% - 36px)}
+  .header-row{flex-direction:column;gap:15px;padding:20px 0}
+  nav{justify-content:flex-start}
+  nav a{font-size:.85rem}
+  .hero{padding:48px 0}
+  section{padding:45px 0}
+  .plans,.states{grid-template-columns:1fr}
+  .plan,.calculator,.state-card{padding:24px}
+  .description{min-height:0}
+}
+@media(max-width:430px){
+  .results{grid-template-columns:1fr}
+  .actions{width:100%}
+  .actions .button{width:100%}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
+<header>
+<div class="wrap header-row">
+  <a class="brand" href="/">Thousand<span>Squared</span></a>
+  <nav aria-label="Main navigation">
+    <a href="/#platform">Platform</a>
+    <a href="/#service-options">Service Options</a>
+    <a href="/pricing/" aria-current="page">Pricing</a>
+    <a href="mailto:nglatzer@thousandsquared.com">Contact</a>
+    <a class="button primary" href="https://app.thousandsquared.com">Open App</a>
+  </nav>
+</div>
+</header>
+
+<main id="main">
+<section class="hero">
+<div class="wrap intro">
+  <p class="eyebrow">ACA filing pricing</p>
+  <h1>Two ways to file.<br>One intelligent platform.</h1>
+  <p class="lead">
+    Use automated software to manage your company's ACA filing yourself,
+    or let the ThousandSquared team review and manage the process.
+    Clear volume pricing lets you understand the cost before you file.
+  </p>
+</div>
+</section>
+
+<section>
+<div class="wrap plans">
+
+<article class="plan">
+  <span class="plan-label">SELF-SERVICE SOFTWARE</span>
+  <h2>DIY Automated Filing</h2>
+  <p class="description">
+    Upload your employee and benefits data. Let the software
+    automatically code, validate, generate, and electronically
+    file your ACA forms.
+  </p>
+  <p class="start">Starting at</p>
+  <p class="price">$249</p>
+  <p class="price-note">Volume rates as low as $1.89 per form.</p>
+  <a class="button primary" href="https://app.thousandsquared.com">Open App / Demo</a>
+
+  <div class="table-wrap">
+  <table>
+    <caption>Federal filing rates</caption>
+    <thead>
+      <tr><th scope="col">Forms</th><th scope="col">Per form</th><th scope="col">Tier minimum</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1&ndash;100</td><td class="rate">$3.49</td><td class="minimum">$249</td></tr>
+      <tr><td>101&ndash;250</td><td class="rate">$2.99</td><td class="minimum">$349</td></tr>
+      <tr><td>251&ndash;500</td><td class="rate">$2.59</td><td class="minimum">$749</td></tr>
+      <tr><td>501&ndash;749</td><td class="rate">$2.19</td><td class="minimum">$1,295</td></tr>
+      <tr><td>750+</td><td class="rate">$1.89</td><td class="minimum">$1,649</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="table-note">
+    Your volume rate applies to all forms in the filing, subject
+    to the minimum charge for your tier. State filing is an optional add-on.
+  </p>
+
+  <h3 class="included-title">Included with DIY</h3>
+  <ul class="features">
+    <li>Employee data upload and import</li>
+    <li>Automatic ACA coding, including Lines 14, 15, and 16</li>
+    <li>ACA validation and error checking</li>
+    <li>Form 1094-C and Form 1095-C preparation</li>
+    <li>1095-C PDF generation and secure employee portal access</li>
+    <li>IRS electronic filing</li>
+    <li>Filing status and acknowledgement tracking</li>
+    <li>Rejected transmission resubmission</li>
+  </ul>
+</article>
+
+<article class="plan managed">
+  <span class="plan-label">MANAGED BY OUR TEAM</span>
+  <h2>Managed Filing</h2>
+  <p class="description">
+    Save staff time by having ThousandSquared review and manage
+    your filing, with human oversight, priority support,
+    and one applicable state filing included.
+  </p>
+  <p class="start">Starting at</p>
+  <p class="price">$495</p>
+  <p class="price-note">Volume rates as low as $3.25 per form.</p>
+  <a class="button primary" href="mailto:nglatzer@thousandsquared.com">Discuss Managed Filing</a>
+
+  <div class="table-wrap">
+  <table>
+    <caption>Managed filing rates</caption>
+    <thead>
+      <tr><th scope="col">Forms</th><th scope="col">Per form</th><th scope="col">Tier minimum</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1&ndash;100</td><td class="rate">$4.95</td><td class="minimum">$495</td></tr>
+      <tr><td>101&ndash;500</td><td class="rate">$4.25</td><td class="minimum">$495</td></tr>
+      <tr><td>501&ndash;1,000</td><td class="rate">$3.89</td><td class="minimum">$2,125</td></tr>
+      <tr><td>1,001+</td><td class="rate">$3.25</td><td class="minimum">$3,890</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="table-note">
+    Your volume rate applies to all forms in the filing, subject
+    to the minimum charge for your tier. One applicable state filing is included.
+  </p>
+
+  <h3 class="included-title">Everything in DIY, plus</h3>
+  <ul class="features">
+    <li>Human pre-filing review</li>
+    <li>Review of ACA coding and validation exceptions</li>
+    <li>Filing administration and IRS submission management</li>
+    <li>Rejection review and resubmission</li>
+    <li>Filing acknowledgement monitoring</li>
+    <li>Assistance resolving filing issues</li>
+    <li>Priority support</li>
+    <li>One applicable state filing</li>
+  </ul>
+  <p class="responsibility">
+    Your company remains responsible for the accuracy and completeness
+    of the underlying payroll, benefits, and employee information supplied.
+  </p>
+</article>
+
+</div>
+</section>
+
+<section class="soft">
+<div class="wrap">
+  <div class="section-intro">
+    <p class="eyebrow">Know your filing cost</p>
+    <h2>Calculate your federal filing price.</h2>
+    <p>
+      Enter the number of Forms 1095-C for one employer and tax year.
+      The calculator applies the correct volume rate and tier minimum.
+    </p>
+  </div>
+
+  <div class="calculator">
+    <div class="calc-grid">
+      <div>
+        <label for="form-count">Number of Forms 1095-C</label>
+        <input id="form-count" type="number" min="1" step="1" value="100"
+          inputmode="numeric" aria-describedby="count-help count-error">
+        <p class="help" id="count-help">
+          Pricing is based on forms filed, not the number of employees
+          appearing in your source reports.
+        </p>
+        <p class="error" id="count-error" role="alert"></p>
+      </div>
+
+      <div class="results" aria-live="polite" aria-atomic="true">
+        <div class="result">
+          <h3>DIY Filing</h3>
+          <output class="total" id="diy-total">$349.00</output>
+          <span class="detail" id="diy-detail">
+            100 forms at $3.49 per form. Tier minimum: $249.00.
+          </span>
+        </div>
+        <div class="result">
+          <h3>Managed Filing</h3>
+          <output class="total" id="managed-total">$495.00</output>
+          <span class="detail" id="managed-detail">
+            100 forms at $4.95 per form. Tier minimum: $495.00.
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <p class="calc-note">
+      DIY totals exclude state filing add-ons. Managed Filing includes
+      one applicable state filing; additional state filings are priced
+      separately. This calculator provides a price estimate and does
+      not authorize filing or collect payment.
+    </p>
+    <noscript>
+      <p class="small">
+        Enable JavaScript to use the calculator, or calculate your price
+        using the rate tables above: forms multiplied by the tier rate,
+        subject to the tier minimum.
+      </p>
+    </noscript>
+  </div>
+</div>
+</section>
+
+<section id="state-filing">
+<div class="wrap">
+  <div class="section-intro">
+    <p class="eyebrow">State reporting</p>
+    <h2>State filing when your company needs it.</h2>
+    <p>
+      Add applicable state filings to DIY, or receive one applicable
+      state filing with Managed Filing.
+    </p>
+  </div>
+
+  <div class="states">
+    <article class="state-card">
+      <h3>DIY state filing add-ons</h3>
+      <p>Optional state filings are charged separately from federal filing.</p>
+      <div class="table-wrap">
+      <table>
+        <caption>DIY state rates</caption>
+        <thead>
+          <tr><th scope="col">Filing</th><th scope="col">Rate</th><th scope="col">Minimum</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CA, NJ, DC, RI</td>
+            <td>$0.99 per form, per state</td>
+            <td class="minimum">$75 per state</td>
+          </tr>
+          <tr>
+            <td>Massachusetts 1099-HC</td>
+            <td>$1.49 per form</td>
+            <td class="minimum">$125</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </article>
+
+    <article class="state-card">
+      <h3>Managed state filing</h3>
+      <p>One applicable state filing is included. Rates below apply to additional state filings.</p>
+      <div class="table-wrap">
+      <table>
+        <caption>Additional managed state rates</caption>
+        <thead>
+          <tr><th scope="col">Filing</th><th scope="col">Rate</th><th scope="col">Minimum</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CA, NJ, DC, RI</td>
+            <td>$0.75 per form, per state</td>
+            <td class="minimum">$75 per state</td>
+          </tr>
+          <tr>
+            <td>Massachusetts 1099-HC</td>
+            <td>$1.00 per form</td>
+            <td class="minimum">$125</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </article>
+  </div>
+
+  <div class="state-note">
+    <p>
+      <strong>Example:</strong> For 730 DIY federal forms and 730
+      forms requiring New Jersey filing, federal filing costs
+      <strong>$1,598.70</strong> and New Jersey filing costs
+      <strong>$722.70</strong>, for a total of <strong>$2,321.40</strong>.
+    </p>
+    <p>
+      State filing applies only where your company has an applicable
+      filing requirement. Required state registrations, authorizations,
+      or account setup must be completed before filing where applicable.
+    </p>
+  </div>
+</div>
+</section>
+
+<section class="soft">
+<div class="wrap faq">
+  <p class="eyebrow">Pricing explained</p>
+  <h2>Understand what you pay for.</h2>
+
+  <details open>
+    <summary>How is my filing price calculated?</summary>
+    <p>
+      Your tier is selected using the total number of Forms 1095-C
+      filed for one employer and tax year. The tier's rate applies
+      to every form in that filing. Your price is the greater of
+      the calculated amount or the tier minimum.
+    </p>
+    <p>
+      For example, 501 DIY forms at $2.19 total $1,097.19.
+      Because that tier has a $1,295 minimum, the filing price is $1,295.
+    </p>
+  </details>
+
+  <details>
+    <summary>Are rates applied separately to blocks of forms?</summary>
+    <p>
+      No. This is volume pricing, not graduated pricing.
+      One rate applies to all forms in the filing, subject to the
+      applicable tier minimum.
+    </p>
+  </details>
+
+  <details>
+    <summary>What is the difference between DIY and Managed Filing?</summary>
+    <p>
+      With DIY, your team uses the software to import data, review
+      automatically coded forms, and submit filings. With Managed Filing,
+      ThousandSquared adds human review, filing management, assistance
+      with filing issues, priority support, and one applicable state filing.
+    </p>
+  </details>
+
+  <details>
+    <summary>Is employee access to Form 1095-C included?</summary>
+    <p>
+      Yes. Both options include 1095-C PDF generation and secure
+      employee access through the employee portal.
+    </p>
+  </details>
+
+  <details>
+    <summary>Is rejected transmission resubmission included?</summary>
+    <p>
+      Yes. DIY includes rejected transmission resubmission.
+      Managed Filing also includes team review of rejections,
+      resubmission, and acknowledgement monitoring.
+    </p>
+  </details>
+
+  <details>
+    <summary>What information does my company need to provide?</summary>
+    <p>
+      Your company completes a brief questionnaire and provides the
+      employee, payroll, and benefits information needed for reporting.
+      The employer remains responsible for supplying accurate and
+      complete information, including when using Managed Filing.
+    </p>
+  </details>
+</div>
+</section>
+
+<section class="contact">
+<div class="wrap contact-row">
+  <div>
+    <h2>Choose the right approach for your company.</h2>
+    <p>
+      Save time with automated ACA filing, or let our team manage
+      the process. Explore the application or contact us to discuss
+      your filing needs.
+    </p>
+  </div>
+  <div class="actions">
+    <a class="button primary" href="https://app.thousandsquared.com">Open App</a>
+    <a class="button secondary" href="mailto:nglatzer@thousandsquared.com">Contact Our Team</a>
+  </div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="wrap footer-row">
+  <p>&copy; 2026 ThousandSquared. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="https://app.thousandsquared.com">Open App</a>
+    <a href="mailto:nglatzer@thousandsquared.com">Contact</a>
+    <a href="https://portal.thousandsquared.com">Employee 1095 Portal</a>
+  </div>
+</div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  const diyTiers = [
+    { max: 100, rate: 349, minimum: 24900 },
+    { max: 250, rate: 299, minimum: 34900 },
+    { max: 500, rate: 259, minimum: 74900 },
+    { max: 749, rate: 219, minimum: 129500 },
+    { max: Infinity, rate: 189, minimum: 164900 }
+  ];
+
+  const managedTiers = [
+    { max: 100, rate: 495, minimum: 49500 },
+    { max: 500, rate: 425, minimum: 49500 },
+    { max: 1000, rate: 389, minimum: 212500 },
+    { max: Infinity, rate: 325, minimum: 389000 }
+  ];
+
+  const input = document.getElementById("form-count");
+  const error = document.getElementById("count-error");
+
+  const money = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD"
+  });
+
+  function format(cents) {
+    return money.format(cents / 100);
+  }
+
+  function showPrice(prefix, count, tiers) {
+    const tier = tiers.find(function (item) {
+      return count <= item.max;
+    });
+
+    const calculated = count * tier.rate;
+    const total = Math.max(calculated, tier.minimum);
+
+    document.getElementById(prefix + "-total").textContent = format(total);
+
+    let explanation =
+      count.toLocaleString("en-US") +
+      " forms at " + format(tier.rate) +
+      " per form. Tier minimum: " + format(tier.minimum) + ".";
+
+    if (calculated < tier.minimum) {
+      explanation += " The minimum charge applies.";
+    }
+
+    document.getElementById(prefix + "-detail").textContent = explanation;
+  }
+
+  function update() {
+    const count = Number(input.value);
+
+    if (
+      input.value.trim() === "" ||
+      !Number.isSafeInteger(count) ||
+      count < 1 ||
+      !Number.isSafeInteger(count * 495)
+    ) {
+      input.setAttribute("aria-invalid", "true");
+      error.textContent = "Enter a valid whole number of forms, starting at 1.";
+      ["diy", "managed"].forEach(function (prefix) {
+        document.getElementById(prefix + "-total").textContent = "--";
+        document.getElementById(prefix + "-detail").textContent =
+          "Enter a valid form count to calculate pricing.";
+      });
+      return;
+    }
+
+    input.removeAttribute("aria-invalid");
+    error.textContent = "";
+    showPrice("diy", count, diyTiers);
+    showPrice("managed", count, managedTiers);
+  }
+
+  input.addEventListener("input", update);
+  update();
+})();
+</script>
+</body>
+</html>
