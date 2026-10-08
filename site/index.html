@@ -3,200 +3,395 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Save time on ACA reporting with intelligent Excel imports, automatic 1095-C coding, and federal and state e-filing. Use the software yourself or let ThousandSquared handle the process.">
+<meta name="description" content="Reduce hours of manual ACA reporting work with intelligent data imports, automatic 1095-C coding, and federal and state e-filing. Choose DIY software or fully managed service.">
 <title>ThousandSquared | Intelligent ACA Reporting</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23102a43'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='30' font-weight='700' fill='white'%3ETS%3C/text%3E%3C/svg%3E">
+
 <style>
 :root {
-  --navy:#102a43;
-  --text:#183b56;
-  --muted:#526779;
-  --green:#007c69;
-  --light:#eef7f4;
-  --border:#dce5e9;
-  --background:#f7f9fb;
+  --navy: #102a43;
+  --text: #183b56;
+  --muted: #526779;
+  --green: #007c69;
+  --light: #eef7f4;
+  --border: #dce5e9;
+  --background: #f7f9fb;
 }
-* {box-sizing:border-box}
-html {scroll-behavior:smooth;scroll-padding-top:30px}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 30px; }
 body {
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--text);
-  background:white;
-  line-height:1.65;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: white;
+  line-height: 1.65;
 }
-a {color:inherit}
-a:focus-visible {outline:3px solid #d59020;outline-offset:5px}
-h1,h2,h3,p {margin-top:0}
-h1,h2,h3 {line-height:1.15;letter-spacing:-.035em}
-h1 {font-size:clamp(2.6rem,5vw,4.5rem);margin-bottom:24px}
-h2 {font-size:clamp(2rem,3.5vw,3rem);margin-bottom:20px}
-h3 {font-size:1.2rem;margin-bottom:12px;letter-spacing:-.015em}
-p {margin-bottom:20px}
-.wrap {width:min(1120px,calc(100% - 48px));margin:auto}
+a { color: inherit; }
+a:focus-visible {
+  outline: 3px solid #d59020;
+  outline-offset: 5px;
+}
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 {
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+h1 {
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-bottom: 20px;
+}
+h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  letter-spacing: -.015em;
+}
+p { margin-bottom: 20px; }
+.wrap {
+  width: min(1120px, calc(100% - 48px));
+  margin: auto;
+}
 .skip {
-  position:absolute;top:-100px;left:20px;
-  z-index:10;background:white;padding:12px;
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  z-index: 10;
+  background: white;
+  padding: 12px;
 }
-.skip:focus {top:12px}
-header {background:white;border-bottom:1px solid var(--border)}
+.skip:focus { top: 12px; }
+
+header {
+  background: white;
+  border-bottom: 1px solid var(--border);
+}
 .header-row {
-  display:flex;align-items:center;justify-content:space-between;
-  gap:24px;padding:23px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 23px 0;
 }
 .brand {
-  text-decoration:none;font-weight:800;font-size:1.45rem;
-  letter-spacing:-.055em;white-space:nowrap;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: -.055em;
+  white-space: nowrap;
 }
-.brand span {color:var(--green)}
-nav {display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-nav a {font-size:.9rem;text-decoration:none;font-weight:600}
-nav a:hover {color:var(--green)}
+.brand span { color: var(--green); }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+nav a {
+  font-size: .9rem;
+  text-decoration: none;
+  font-weight: 600;
+}
+nav a:hover { color: var(--green); }
+
 .button {
-  display:inline-flex;align-items:center;justify-content:center;
-  text-decoration:none;padding:13px 22px;border-radius:7px;
-  font-size:.95rem;font-weight:700;line-height:1.4;
-  border:1px solid transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 13px 22px;
+  border-radius: 7px;
+  font-size: .95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  border: 1px solid transparent;
 }
-.primary {background:var(--green);color:white}
-.primary:hover {background:#005f51;color:white}
-.secondary {border-color:var(--border);background:white;color:var(--text)}
-.secondary:hover {background:var(--background)}
-nav .button {padding:10px 16px}
-.actions {display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 18px}
+.primary {
+  background: var(--green);
+  color: white;
+}
+.primary:hover {
+  background: #005f51;
+  color: white;
+}
+.secondary {
+  border-color: var(--border);
+  background: white;
+  color: var(--text);
+}
+.secondary:hover { background: var(--background); }
+nav .button { padding: 10px 16px; }
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 28px 0 18px;
+}
 .eyebrow {
-  font-size:.76rem;font-weight:800;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--green);margin-bottom:18px;
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 18px;
 }
+
 .hero {
-  background:linear-gradient(135deg,#f4f8fa,#edf6f2);
-  padding:90px 0;
+  background: linear-gradient(135deg, #f4f8fa, #edf6f2);
+  padding: 90px 0;
 }
 .hero-grid {
-  display:grid;
-  grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);
-  align-items:center;gap:56px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 56px;
 }
-.lead {font-size:1.12rem;color:var(--muted);max-width:660px}
-.note {font-size:.85rem;color:var(--muted);margin:0}
+.lead {
+  font-size: 1.12rem;
+  color: var(--muted);
+  max-width: 660px;
+}
+.note {
+  font-size: .85rem;
+  color: var(--muted);
+  margin: 0;
+}
 .hero-card {
-  background:white;padding:32px;border:1px solid var(--border);
-  border-radius:16px;box-shadow:0 20px 50px #102a430b;
+  background: white;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px #102a430b;
 }
 .card-label {
-  color:var(--muted);font-size:.8rem;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;
+  color: var(--muted);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
-.workflow {list-style:none;padding:0;margin:28px 0 0}
+.workflow {
+  list-style: none;
+  padding: 0;
+  margin: 28px 0 0;
+}
 .workflow li {
-  display:flex;align-items:flex-start;gap:15px;
-  padding:17px 0;border-top:1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 17px 0;
+  border-top: 1px solid var(--border);
 }
 .number {
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;width:34px;height:34px;border-radius:50%;
-  background:var(--light);color:var(--green);
-  font-weight:700;font-size:.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--light);
+  color: var(--green);
+  font-weight: 700;
+  font-size: .8rem;
 }
-.workflow strong {display:block}
-.workflow p {font-size:.9rem;color:var(--muted);margin:4px 0 0}
-section {padding:80px 0}
-.intro {max-width:760px;margin-bottom:36px}
-.intro p {color:var(--muted);margin-bottom:0}
-.intro .eyebrow {color:var(--green);margin-bottom:18px}
+.workflow strong { display: block; }
+.workflow p {
+  font-size: .9rem;
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+section { padding: 80px 0; }
+.intro {
+  max-width: 760px;
+  margin-bottom: 36px;
+}
+.intro p {
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.intro .eyebrow {
+  color: var(--green);
+  margin-bottom: 18px;
+}
 .grid {
-  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
 }
 .feature {
-  padding:28px;border:1px solid var(--border);border-radius:10px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
 }
-.feature p {font-size:.95rem;color:var(--muted);margin:0}
+.feature p {
+  font-size: .95rem;
+  color: var(--muted);
+  margin: 0;
+}
 .tag {
-  display:block;color:var(--green);font-size:.76rem;
-  letter-spacing:.05em;font-weight:700;margin-bottom:20px;
+  display: block;
+  color: var(--green);
+  font-size: .76rem;
+  letter-spacing: .05em;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
-.soft {background:var(--background)}
+.soft { background: var(--background); }
 .steps {
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:28px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
 }
-.step {border-top:2px solid var(--border);padding-top:22px}
-.step p {font-size:.95rem;color:var(--muted);margin:0}
+.step {
+  border-top: 2px solid var(--border);
+  padding-top: 22px;
+}
+.step p {
+  font-size: .95rem;
+  color: var(--muted);
+  margin: 0;
+}
 .split {
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:64px;align-items:start;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
 }
-.services {display:grid;gap:22px}
-.service {padding-bottom:22px;border-bottom:1px solid var(--border)}
-.service:last-child {border-bottom:0;padding-bottom:0}
-.service p {color:var(--muted);font-size:.95rem;margin:0}
+.services {
+  display: grid;
+  gap: 22px;
+}
+.service {
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border);
+}
+.service:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.service p {
+  color: var(--muted);
+  font-size: .95rem;
+  margin: 0;
+}
 .callout {
-  background:var(--light);border:1px solid #d4e6df;
-  border-radius:12px;padding:32px;
+  background: var(--light);
+  border: 1px solid #d4e6df;
+  border-radius: 12px;
+  padding: 32px;
 }
-.callout p:last-child {margin-bottom:0}
+.callout p:last-child { margin-bottom: 0; }
+
 .options {
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 .option {
-  background:white;border:1px solid var(--border);
-  border-radius:12px;padding:34px;
-  display:flex;flex-direction:column;align-items:flex-start;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
-.option p {color:var(--muted)}
-.option .button {margin-top:auto}
-.option.managed {border-color:#b7d8cc;background:var(--light)}
-.contact {background:var(--navy);color:white}
-.contact .eyebrow {color:#91ddc8}
-.contact p {color:#d0dce6;max-width:650px}
-.contact .split {align-items:center}
+.option p { color: var(--muted); }
+.option .eyebrow { color: var(--green); }
+.option .button { margin-top: auto; }
+.option.managed {
+  border-color: #b7d8cc;
+  background: var(--light);
+}
+
+.contact {
+  background: var(--navy);
+  color: white;
+}
+.contact .eyebrow { color: #91ddc8; }
+.contact p {
+  color: #d0dce6;
+  max-width: 650px;
+}
+.contact .split { align-items: center; }
 .contact-links {
-  display:flex;flex-direction:column;align-items:flex-start;gap:16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 .contact .secondary {
-  background:transparent;border-color:#8196a7;color:white;
+  background: transparent;
+  border-color: #8196a7;
+  color: white;
 }
-.contact .secondary:hover {background:#23445e}
+.contact .secondary:hover { background: #23445e; }
+
 footer {
-  padding:28px 0;background:#0b2235;
-  color:#bdcad5;font-size:.82rem;
+  padding: 28px 0;
+  background: #0b2235;
+  color: #bdcad5;
+  font-size: .82rem;
 }
 .footer-row {
-  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-.footer-row p {margin:0}
-.footer-links {display:flex;gap:20px;flex-wrap:wrap}
-.footer-links a {text-underline-offset:4px}
-@media(max-width:1000px) {
-  .header-row {align-items:flex-start}
-  nav {gap:14px;justify-content:flex-end}
-  .hero-grid {gap:30px}
-  .grid {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .split {gap:35px}
+.footer-row p { margin: 0; }
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
-@media(max-width:760px) {
-  .wrap {width:calc(100% - 36px)}
-  .header-row {flex-direction:column;gap:15px;padding:20px 0}
-  nav {justify-content:flex-start;gap:14px}
-  nav a {font-size:.85rem}
-  nav .button {padding:8px 12px}
-  .hero {padding:52px 0}
-  .hero-grid,.split,.options {grid-template-columns:1fr;gap:35px}
-  .hero-card {padding:25px}
-  section {padding:55px 0}
-  .steps {grid-template-columns:repeat(2,minmax(0,1fr))}
-  .option {padding:28px}
+.footer-links a { text-underline-offset: 4px; }
+
+@media (max-width: 1000px) {
+  .header-row { align-items: flex-start; }
+  nav {
+    gap: 14px;
+    justify-content: flex-end;
+  }
+  .hero-grid { gap: 30px; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split { gap: 35px; }
 }
-@media(max-width:460px) {
-  .grid,.steps {grid-template-columns:1fr}
-  .actions .button {width:100%}
-  .brand {font-size:1.35rem}
-  h1 {font-size:2.5rem}
+@media (max-width: 760px) {
+  .wrap { width: calc(100% - 36px); }
+  .header-row {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 0;
+  }
+  nav {
+    justify-content: flex-start;
+    gap: 14px;
+  }
+  nav a { font-size: .85rem; }
+  nav .button { padding: 8px 12px; }
+  .hero { padding: 52px 0; }
+  .hero-grid, .split, .options {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .hero-card { padding: 25px; }
+  section { padding: 55px 0; }
+  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .option { padding: 28px; }
 }
-@media(prefers-reduced-motion:reduce) {
-  html {scroll-behavior:auto}
+@media (max-width: 460px) {
+  .grid, .steps { grid-template-columns: 1fr; }
+  .actions .button { width: 100%; }
+  .brand { font-size: 1.35rem; }
+  h1 { font-size: 2.5rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 </style>
 </head>
@@ -220,32 +415,35 @@ footer {
 </header>
 
 <main id="main">
+
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow">Intelligent ACA reporting</p>
-        <h1>Less manual work.<br>Smarter ACA reporting.</h1>
+        <h1>Reduce hours of manual work.</h1>
         <p class="lead">
-          ThousandSquared turns employee data and insurance census
-          information into automatically coded Forms 1095-C, then
-          e-files federal and applicable state returns.
+          ThousandSquared intelligently imports employee data and
+          insurance census information, automatically applies the
+          appropriate 1095-C codes, and prepares your forms for
+          federal and applicable state e-filing.
         </p>
         <p class="lead">
-          Save time with intelligent automation. Use the software
-          yourself or let the ThousandSquared team handle the
-          entire process for your company.
+          Save time on ACA reporting so your team can focus on
+          running your business. Use the software yourself or
+          let ThousandSquared manage the process for your company.
         </p>
         <div class="actions">
           <a class="button primary" href="https://app.thousandsquared.com">Open App / Demo</a>
-          <a class="button secondary" href="mailto:nglatzer@thousandsquared.com">Discuss Full Service</a>
+          <a class="button secondary" href="mailto:nglatzer@thousandsquared.com">Discuss Managed Filing</a>
         </div>
         <p class="note">
           For employers, HR teams, payroll providers, and benefits professionals.
         </p>
       </div>
+
       <aside class="hero-card" aria-label="Platform capabilities">
         <p class="card-label">From raw reports to completed filings</p>
-        <h3>Let intelligence do the repetitive work.</h3>
+        <h3>Save time with intelligent ACA automation.</h3>
         <ol class="workflow">
           <li>
             <span class="number">01</span>
@@ -265,7 +463,7 @@ footer {
             <span class="number">03</span>
             <div>
               <strong>Federal and state e-filing</strong>
-              <p>Prepare forms and electronically submit the required returns.</p>
+              <p>E-file federal returns and applicable state submissions.</p>
             </div>
           </li>
         </ol>
@@ -277,15 +475,16 @@ footer {
     <div class="wrap">
       <div class="intro">
         <p class="eyebrow">Automation that saves time</p>
-        <h2>Complex coding without the repetitive work.</h2>
+        <h2>Save time on 1095-C preparation and filing.</h2>
         <p>
-          Reviewing employee records and assigning monthly 1095-C codes
-          by hand can be complicated, tedious, and time-consuming.
-          ThousandSquared analyzes your data and automatically applies
-          the appropriate codes, reducing manual preparation and
-          giving your team more time for other priorities.
+          Manually reviewing employee records, interpreting coverage
+          information, and assigning monthly 1095-C codes can consume
+          valuable staff time. ThousandSquared automates the detailed
+          work, helping your company move from source reports to
+          completed filings with less manual effort.
         </p>
       </div>
+
       <div class="grid">
         <article class="feature">
           <span class="tag">INTELLIGENT DATA IMPORT</span>
@@ -296,15 +495,17 @@ footer {
             and imports the information needed for ACA reporting.
           </p>
         </article>
+
         <article class="feature">
           <span class="tag">AUTOMATIC CODE ASSIGNMENT</span>
           <h3>1095-C codes applied automatically</h3>
           <p>
             The software analyzes employee and insurance data to determine
-            and apply the appropriate monthly codes, reducing
-            repetitive research and manual code selection.
+            and apply the appropriate monthly codes and Line 15 amounts,
+            including reporting for Lines 14, 15, and 16.
           </p>
         </article>
+
         <article class="feature">
           <span class="tag">REVIEW AND VALIDATION</span>
           <h3>Focus on exceptions</h3>
@@ -314,14 +515,17 @@ footer {
             where review is needed.
           </p>
         </article>
+
         <article class="feature">
           <span class="tag">ELECTRONIC FILING</span>
           <h3>Federal and applicable state returns</h3>
           <p>
-            Prepare Forms 1094-C and 1095-C and e-file federal returns
-            and applicable state submissions through the platform.
+            Prepare Forms 1094-C and 1095-C and e-file federal returns.
+            Applicable state filing is available as a DIY add-on,
+            with one applicable state filing included in Managed Filing.
           </p>
         </article>
+
         <article class="feature">
           <span class="tag">COMPLEX REPORTING</span>
           <h3>Self-insured plans and ICHRA</h3>
@@ -330,12 +534,13 @@ footer {
             1095-C coding scenarios within the same reporting workflow.
           </p>
         </article>
+
         <article class="feature">
           <span class="tag">EMPLOYEE FORM ACCESS</span>
           <h3>Online document retrieval</h3>
           <p>
-            A dedicated employee portal makes available Form 1095
-            documents accessible online after preparation.
+            Generate 1095-C PDFs and provide secure employee access
+            through a dedicated online retrieval portal.
           </p>
         </article>
       </div>
@@ -352,6 +557,7 @@ footer {
           let ThousandSquared handle the detailed coding work.
         </p>
       </div>
+
       <div class="steps">
         <article class="step">
           <span class="tag">01 / COMPANY SETUP</span>
@@ -361,6 +567,7 @@ footer {
             business and health coverage arrangements.
           </p>
         </article>
+
         <article class="step">
           <span class="tag">02 / IMPORT</span>
           <h3>Provide your reports</h3>
@@ -369,6 +576,7 @@ footer {
             census files. Intelligent tools read and import the relevant data.
           </p>
         </article>
+
         <article class="step">
           <span class="tag">03 / AUTOMATE AND REVIEW</span>
           <h3>Let the software code</h3>
@@ -377,12 +585,13 @@ footer {
             1095-C codes. Review prepared forms and resolve flagged items.
           </p>
         </article>
+
         <article class="step">
           <span class="tag">04 / E-FILE</span>
           <h3>Complete your filings</h3>
           <p>
-            E-file federal and applicable state returns, with employee
-            forms available through the retrieval portal.
+            Submit federal and applicable state returns, track filing
+            acknowledgements, and make employee forms available online.
           </p>
         </article>
       </div>
@@ -399,36 +608,47 @@ footer {
           level of service that works best for your company.
         </p>
       </div>
+
       <div class="options">
         <article class="option">
-          <p class="eyebrow">Self-service software</p>
+          <p class="eyebrow">DIY automated filing</p>
           <h3>Your team stays in control.</h3>
           <p>
             Use ThousandSquared directly to complete your company
             questionnaire, import reports, review automatically coded
-            forms, and e-file your returns.
+            forms, and e-file your federal returns.
           </p>
           <p>
-            A practical option for companies that want to manage
-            reporting internally while reducing manual work.
+            Manage reporting internally while reducing hours of
+            manual preparation. State filing is available as an add-on.
           </p>
           <a class="button primary" href="https://app.thousandsquared.com">Explore the App</a>
         </article>
+
         <article class="option managed">
-          <p class="eyebrow">Fully managed service</p>
-          <h3>Our team handles the process.</h3>
+          <p class="eyebrow">Managed filing</p>
+          <h3>Our team manages the process.</h3>
           <p>
             Provide your company information and source reports.
-            The ThousandSquared team handles data preparation,
-            coding, review, and federal and applicable state e-filing.
+            ThousandSquared handles filing administration, human
+            pre-filing review, submission management, and acknowledgement
+            monitoring.
           </p>
           <p>
-            A practical option for companies that want to save
-            staff time and have the reporting process managed for them.
+            Save staff time with priority support, assistance resolving
+            filing issues, and one applicable state filing included.
           </p>
-          <a class="button primary" href="mailto:nglatzer@thousandsquared.com">Discuss Full Service</a>
+          <a class="button primary" href="mailto:nglatzer@thousandsquared.com">Discuss Managed Filing</a>
         </article>
       </div>
+
+      <div class="actions">
+        <a class="button secondary" href="/pricing/">View Pricing</a>
+      </div>
+      <p class="note">
+        Your company remains responsible for the accuracy and completeness
+        of the employee, payroll, and benefits information supplied.
+      </p>
     </div>
   </section>
 
@@ -444,6 +664,7 @@ footer {
         </p>
         <a class="button primary" href="https://app.thousandsquared.com">Explore the App</a>
       </div>
+
       <div class="callout">
         <h3>Intelligent handling of complex cases</h3>
         <p>
@@ -472,19 +693,23 @@ footer {
         </p>
         <a class="button primary" href="mailto:nglatzer@thousandsquared.com">Discuss Your ACA Needs</a>
       </div>
+
       <div class="services">
         <article class="service">
           <h3>ACA compliance consulting</h3>
           <p>Guidance on eligibility, measurement methods, affordability, and reporting questions.</p>
         </article>
+
         <article class="service">
           <h3>IRS notice response support</h3>
           <p>Assistance reviewing ACA-related notices and organizing information for a response.</p>
         </article>
+
         <article class="service">
           <h3>Corrections and prior-year reporting</h3>
           <p>Help with corrected forms, late filings, and historical data preparation.</p>
         </article>
+
         <article class="service">
           <h3>Reporting process review</h3>
           <p>Review HR, payroll, and benefits workflows to identify reporting gaps.</p>
@@ -497,19 +722,22 @@ footer {
     <div class="wrap split">
       <div>
         <p class="eyebrow">Get started</p>
-        <h2>Give your team its time back.</h2>
+        <h2>Reduce manual work. Make more time for your business.</h2>
         <p>
           Automate the detailed work of ACA reporting or let
-          ThousandSquared manage the process for your company.
+          ThousandSquared manage the filing process for your company.
           Explore the software or contact us to discuss your needs.
         </p>
       </div>
+
       <div class="contact-links">
         <a class="button primary" href="https://app.thousandsquared.com">Open App / Demo</a>
         <a class="button secondary" href="mailto:nglatzer@thousandsquared.com">Contact Our Team</a>
+        <a class="button secondary" href="/pricing/">View Pricing</a>
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
@@ -523,5 +751,6 @@ footer {
     </div>
   </div>
 </footer>
+
 </body>
 </html>
