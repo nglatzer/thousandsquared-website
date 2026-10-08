@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="ACA reporting software and professional services. Prepare Forms 1095-C, coordinate filings, and provide employee form access with ThousandSquared.">
-<title>ThousandSquared | ACA Reporting Software &amp; Services</title>
+<meta name="description" content="Intelligent ACA reporting software that imports employee and insurance data, automatically assigns 1095-C codes, and e-files federal and applicable state returns.">
+<title>ThousandSquared | Intelligent ACA Reporting</title>
 <style>
 :root {
   --navy: #102a43;
@@ -140,7 +140,7 @@ nav .button { padding: 10px 16px; }
 .workflow strong { display: block; }
 .workflow p { font-size: .9rem; color: var(--muted); margin: 4px 0 0; }
 section { padding: 80px 0; }
-.intro { max-width: 720px; margin-bottom: 36px; }
+.intro { max-width: 760px; margin-bottom: 36px; }
 .intro p { color: var(--muted); margin-bottom: 0; }
 .intro .eyebrow { color: var(--green); margin-bottom: 18px; }
 .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
@@ -163,26 +163,20 @@ section { padding: 80px 0; }
 .service { padding-bottom: 22px; border-bottom: 1px solid var(--border); }
 .service:last-child { border-bottom: 0; padding-bottom: 0; }
 .service p { color: var(--muted); font-size: .95rem; margin: 0; }
-.portal {
+.callout {
   background: var(--light);
-  padding: 34px;
   border: 1px solid #d4e6df;
   border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
+  padding: 32px;
 }
-.portal h2 { font-size: 1.8rem; margin-bottom: 10px; }
-.portal p { color: var(--muted); margin: 0; max-width: 620px; }
-.portal .eyebrow { color: var(--green); margin-bottom: 18px; }
-.portal .button { flex-shrink: 0; }
+.callout p:last-child { margin-bottom: 0; }
 .contact { background: var(--navy); color: white; }
 .contact .eyebrow { color: #91ddc8; }
 .contact p { color: #d0dce6; max-width: 650px; }
 .contact .split { align-items: center; }
-.contact-links { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
-.email { overflow-wrap: anywhere; text-underline-offset: 5px; }
+.contact-links { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.contact .secondary { background: transparent; border-color: #8196a7; color: white; }
+.contact .secondary:hover { background: #23445e; }
 footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem; }
 .footer-row { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
 .footer-row p { margin: 0; }
@@ -206,7 +200,6 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
   .hero-card { padding: 25px; }
   section { padding: 55px 0; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .portal { flex-direction: column; align-items: flex-start; padding: 26px; }
 }
 @media (max-width: 460px) {
   .grid, .steps { grid-template-columns: 1fr; }
@@ -229,8 +222,8 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
     </a>
     <nav aria-label="Main navigation">
       <a href="#platform">Platform</a>
+      <a href="#how-it-works">How It Works</a>
       <a href="#services">Services</a>
-      <a href="https://portal.thousandsquared.com">Retrieve Your 1095</a>
       <a href="mailto:nglatzer@thousandsquared.com">Contact</a>
       <a class="button primary" href="https://app.thousandsquared.com">Open App</a>
     </nav>
@@ -241,43 +234,45 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">ACA reporting software &amp; services</p>
-        <h1>A clearer path to ACA reporting.</h1>
+        <p class="eyebrow">Intelligent ACA reporting</p>
+        <h1>Your data.<br>Automatically coded.<br>Ready to e-file.</h1>
         <p class="lead">
-          Manage employee data, prepare Forms 1095-C, and coordinate
-          federal and applicable state reporting with ThousandSquared.
+          ThousandSquared analyzes employee data and insurance census
+          information to automatically assign the appropriate 1095-C
+          codes, prepare your forms, and e-file federal and applicable
+          state returns.
         </p>
         <div class="actions">
-          <a class="button primary" href="https://app.thousandsquared.com">Explore the App</a>
+          <a class="button primary" href="https://app.thousandsquared.com">Open App / Demo</a>
           <a class="button secondary" href="mailto:nglatzer@thousandsquared.com">Contact Our Team</a>
         </div>
         <p class="note">
-          For employers, HR teams, payroll providers, and benefits professionals.
+          Built for employers, HR teams, payroll providers, and benefits professionals.
         </p>
       </div>
-      <aside class="hero-card" aria-label="Reporting workflow overview">
-        <p class="card-label">From preparation to form access</p>
-        <h3>One coordinated workflow.</h3>
+      <aside class="hero-card" aria-label="Platform capabilities">
+        <p class="card-label">Intelligence throughout the process</p>
+        <h3>From raw reports to completed filings.</h3>
         <ol class="workflow">
           <li>
             <span class="number">01</span>
             <div>
-              <strong>Organize your data</strong>
-              <p>Bring employee and coverage information together.</p>
+              <strong>Intelligent Excel imports</strong>
+              <p>Read employee, payroll, and insurance reports and import the relevant data.</p>
             </div>
           </li>
           <li>
             <span class="number">02</span>
             <div>
-              <strong>Prepare and review</strong>
-              <p>Review coding and resolve missing information.</p>
+              <strong>Automatic 1095-C coding</strong>
+              <p>Apply the appropriate monthly codes based on employee and coverage information.</p>
             </div>
           </li>
           <li>
             <span class="number">03</span>
             <div>
-              <strong>File and distribute</strong>
-              <p>Coordinate reporting and employee form access.</p>
+              <strong>Federal and state e-filing</strong>
+              <p>Prepare forms and electronically submit the required returns.</p>
             </div>
           </li>
         </ol>
@@ -288,43 +283,66 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
   <section id="platform">
     <div class="wrap">
       <div class="intro">
-        <p class="eyebrow">The ThousandSquared platform</p>
-        <h2>Bring your reporting process together.</h2>
+        <p class="eyebrow">Automation that does the work</p>
+        <h2>Complex coding. A simpler reporting process.</h2>
         <p>
-          A structured workflow helps your team move from employee data
-          to prepared forms with greater clarity and consistency.
+          Manually reviewing employee records and assigning monthly
+          1095-C codes can be complicated, tedious, and time-consuming.
+          ThousandSquared automates that work by interpreting your data
+          and applying the appropriate codes within one connected workflow.
         </p>
       </div>
       <div class="grid">
         <article class="feature">
-          <span class="tag">DATA PREPARATION</span>
-          <h3>Centralized employee data</h3>
-          <p>Organize census, payroll, eligibility, offers of coverage, and enrollment information for reporting.</p>
+          <span class="tag">INTELLIGENT DATA IMPORT</span>
+          <h3>Start with your Excel reports</h3>
+          <p>
+            Read raw employee demographics, payroll hours, and insurance
+            census reports. The intelligent import tool identifies and
+            imports the information needed for ACA reporting.
+          </p>
         </article>
         <article class="feature">
-          <span class="tag">FORM PREPARATION</span>
-          <h3>1095-C coding support</h3>
-          <p>Use employee and coverage information to support monthly code selection and form preparation.</p>
+          <span class="tag">AUTOMATIC CODE ASSIGNMENT</span>
+          <h3>1095-C codes applied automatically</h3>
+          <p>
+            The software analyzes employee and insurance data to determine
+            and apply the appropriate monthly 1095-C codes, reducing
+            repetitive research and manual code selection.
+          </p>
         </article>
         <article class="feature">
-          <span class="tag">QUALITY REVIEW</span>
-          <h3>Validation before filing</h3>
-          <p>Review missing information and reporting inconsistencies before moving forward with submission.</p>
+          <span class="tag">REVIEW AND VALIDATION</span>
+          <h3>Identify issues before filing</h3>
+          <p>
+            Built-in validation flags missing information and reporting
+            inconsistencies so your team can review exceptions before
+            submitting returns.
+          </p>
         </article>
         <article class="feature">
-          <span class="tag">FEDERAL REPORTING</span>
-          <h3>Federal filing support</h3>
-          <p>Prepare Forms 1094-C and 1095-C and coordinate the federal reporting process.</p>
+          <span class="tag">ELECTRONIC FILING</span>
+          <h3>Federal and applicable state returns</h3>
+          <p>
+            Prepare Forms 1094-C and 1095-C and e-file federal returns
+            and applicable state submissions through the platform.
+          </p>
         </article>
         <article class="feature">
-          <span class="tag">STATE REPORTING</span>
-          <h3>Applicable state reporting</h3>
-          <p>Address state reporting requirements alongside your federal filing workflow.</p>
+          <span class="tag">COMPLEX REPORTING</span>
+          <h3>Self-insured plans and ICHRA</h3>
+          <p>
+            Handle self-insured coverage, ICHRA arrangements, and complex
+            1095-C coding scenarios within the same reporting workflow.
+          </p>
         </article>
         <article class="feature">
-          <span class="tag">EMPLOYEE ACCESS</span>
-          <h3>A dedicated retrieval portal</h3>
-          <p>Give employees a direct place to access their available Form 1095 documents.</p>
+          <span class="tag">EMPLOYEE FORM ACCESS</span>
+          <h3>Online document retrieval</h3>
+          <p>
+            A dedicated employee portal makes available Form 1095
+            documents accessible online after preparation.
+          </p>
         </article>
       </div>
     </div>
@@ -334,41 +352,84 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
     <div class="wrap">
       <div class="intro">
         <p class="eyebrow">How it works</p>
-        <h2>A practical process, from start to finish.</h2>
+        <h2>Import. Automatically code. Review. E-file.</h2>
+        <p>
+          Turn employee and insurance reports into a coordinated ACA
+          reporting process without manually coding each employee's form.
+        </p>
       </div>
       <div class="steps">
         <article class="step">
-          <span class="tag">01 / COLLECT</span>
-          <h3>Gather information</h3>
-          <p>Bring together employee, payroll, eligibility, and coverage data.</p>
+          <span class="tag">01 / IMPORT</span>
+          <h3>Upload your reports</h3>
+          <p>
+            Provide employee demographics, payroll hours, and insurance
+            census files. Intelligent tools read and import the relevant data.
+          </p>
         </article>
         <article class="step">
-          <span class="tag">02 / PREPARE</span>
-          <h3>Build your forms</h3>
-          <p>Prepare reporting records using each employee's monthly information.</p>
+          <span class="tag">02 / AUTOMATE</span>
+          <h3>Let the software code</h3>
+          <p>
+            The platform analyzes each employee's monthly information
+            and automatically applies the appropriate 1095-C codes.
+          </p>
         </article>
         <article class="step">
           <span class="tag">03 / REVIEW</span>
           <h3>Resolve exceptions</h3>
-          <p>Review flagged items and complete missing information.</p>
+          <p>
+            Review prepared forms, address flagged items, and complete
+            missing information before filing.
+          </p>
         </article>
         <article class="step">
-          <span class="tag">04 / COMPLETE</span>
-          <h3>File and provide access</h3>
-          <p>Coordinate submissions and make employee forms available.</p>
+          <span class="tag">04 / E-FILE</span>
+          <h3>Submit your returns</h3>
+          <p>
+            E-file federal and applicable state returns, with employee
+            forms available through the retrieval portal.
+          </p>
         </article>
       </div>
     </div>
   </section>
 
-  <section id="services">
+  <section>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">Built for reporting complexity</p>
+        <h2>Beyond straightforward coverage scenarios.</h2>
+        <p class="lead">
+          Employee circumstances and health coverage arrangements do not
+          always fit a simple template. ThousandSquared handles complex
+          ACA data and coding requirements as part of its core workflow.
+        </p>
+        <a class="button primary" href="https://app.thousandsquared.com">Explore the App</a>
+      </div>
+      <div class="callout">
+        <h3>Intelligent handling of complex cases</h3>
+        <p>
+          From self-insured plans and ICHRA arrangements to changing
+          eligibility and coverage information, the software uses
+          employee-level data to apply the appropriate reporting codes.
+        </p>
+        <p>
+          Keep data imports, automated coding, validation, form preparation,
+          and e-filing connected as reporting requirements become more complex.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft" id="services">
     <div class="wrap split">
       <div>
         <p class="eyebrow">Professional services</p>
-        <h2>Support for more complex ACA matters.</h2>
+        <h2>Expertise alongside intelligent software.</h2>
         <p class="lead">
-          When reporting questions require individual attention,
-          ThousandSquared provides consulting and support tailored
+          For matters that need individual attention, ThousandSquared
+          provides ACA consulting and reporting assistance tailored
           to your organization's circumstances.
         </p>
         <a class="button primary" href="mailto:nglatzer@thousandsquared.com">Discuss Your ACA Needs</a>
@@ -376,7 +437,7 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
       <div class="services">
         <article class="service">
           <h3>ACA compliance consulting</h3>
-          <p>Support with eligibility, measurement methods, affordability, and reporting questions.</p>
+          <p>Guidance on eligibility, measurement methods, affordability, and reporting questions.</p>
         </article>
         <article class="service">
           <h3>IRS notice response support</h3>
@@ -388,23 +449,9 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
         </article>
         <article class="service">
           <h3>Reporting process review</h3>
-          <p>Review your HR, payroll, and benefits workflows to identify reporting gaps.</p>
+          <p>Review HR, payroll, and benefits workflows to identify reporting gaps.</p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <section class="soft">
-    <div class="wrap portal">
-      <div>
-        <p class="eyebrow">Employee form access</p>
-        <h2>Looking for your Form 1095?</h2>
-        <p>
-          Visit the ThousandSquared retrieval portal to access your
-          available document. For help with access, contact your employer.
-        </p>
-      </div>
-      <a class="button primary" href="https://portal.thousandsquared.com">Retrieve Your 1095</a>
     </div>
   </section>
 
@@ -412,15 +459,15 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
     <div class="wrap split">
       <div>
         <p class="eyebrow">Get started</p>
-        <h2>Make your next reporting season more manageable.</h2>
+        <h2>Spend less time on manual coding.</h2>
         <p>
-          Explore the application or contact us to discuss
-          your reporting needs and available services.
+          Discover a more efficient way to import your data, automatically
+          code Forms 1095-C, and complete federal and applicable state filings.
         </p>
       </div>
       <div class="contact-links">
         <a class="button primary" href="https://app.thousandsquared.com">Open App / Demo</a>
-        <a class="email" href="mailto:nglatzer@thousandsquared.com">nglatzer@thousandsquared.com</a>
+        <a class="button secondary" href="mailto:nglatzer@thousandsquared.com">Contact Our Team</a>
       </div>
     </div>
   </section>
@@ -430,9 +477,9 @@ footer { padding: 28px 0; background: #0b2235; color: #bdcad5; font-size: .82rem
   <div class="wrap footer-row">
     <p>&copy; 2026 ThousandSquared. All rights reserved.</p>
     <div class="footer-links">
-      <a href="https://app.thousandsquared.com">App</a>
-      <a href="https://portal.thousandsquared.com">1095 Portal</a>
+      <a href="https://app.thousandsquared.com">Open App</a>
       <a href="mailto:nglatzer@thousandsquared.com">Contact</a>
+      <a href="https://portal.thousandsquared.com">Employee 1095 Portal</a>
     </div>
   </div>
 </footer>
