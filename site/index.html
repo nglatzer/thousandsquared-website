@@ -1,37 +1,695 @@
-<!DOCTYPE html>
+<!-- ThousandSquared ACA 1095-C Landing Page
+Paste this entire block into a Squarespace "Code" block.
+Update the email address, links, and button destinations before publishing.
+-->
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>NGINX on Railway</title>
-    <meta name="description" content="Choo Choo!" />
+<style>
+  :root {
+    --ts-navy: #0b1730;
+    --ts-blue: #1d4ed8;
+    --ts-sky: #eaf2ff;
+    --ts-text: #1d2939;
+    --ts-muted: #667085;
+    --ts-line: #e4e7ec;
+    --ts-white: #ffffff;
+    --ts-bg: #f7f9fc;
+    --ts-radius: 20px;
+    --ts-shadow: 0 20px 55px rgba(11, 23, 48, 0.10);
+  }
 
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  .ts-site,
+  .ts-site * {
+    box-sizing: border-box;
+  }
 
-    <link rel="stylesheet" href="/styles.css?v=1.0" />
-  </head>
+  .ts-site {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ts-text);
+    background: var(--ts-white);
+    line-height: 1.55;
+    overflow: hidden;
+  }
 
-  <body>
-    <main>
-      <img
-        src="https://railway.app/brand/logo-light.svg"
-        alt="Railway logo"
-        class="logo"
-      />
+  .ts-container {
+    width: min(1160px, calc(100% - 40px));
+    margin: 0 auto;
+  }
 
-      <h1>NGINX on Railway</h1>
+  .ts-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0;
+    gap: 24px;
+  }
 
-      <p>
-        Choo Choo! This is an example of an NGINX static site running on
-        Railway.
-        <a
-          href="https://github.com/railwayapp/starters/tree/master/examples/nginx"
-          >View source</a
-        >.
-      </p>
-    </main>
+  .ts-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--ts-navy);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    font-size: 20px;
+  }
 
-    <script src="/script.js"></script>
-  </body>
-</html>
+  .ts-brandmark {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #eef4ff;
+    padding: 7px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+    box-shadow: 0 8px 22px rgba(29, 78, 216, .16);
+  }
+
+  .ts-brandmark span {
+    display: block;
+    border-radius: 2px;
+    background: var(--ts-blue);
+  }
+
+  .ts-brandmark span:nth-child(3n) { opacity: .55; }
+  .ts-brandmark span:nth-child(4n) { opacity: .8; }
+
+  .ts-navlinks {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .ts-navlinks a {
+    color: #344054;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .ts-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 48px;
+    padding: 0 22px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 750;
+    transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+
+  .ts-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .ts-button-primary {
+    background: var(--ts-blue);
+    color: white !important;
+    box-shadow: 0 10px 24px rgba(29, 78, 216, .24);
+  }
+
+  .ts-button-secondary {
+    background: white;
+    color: var(--ts-navy) !important;
+    border: 1px solid var(--ts-line);
+  }
+
+  .ts-hero {
+    background:
+      radial-gradient(circle at 85% 20%, rgba(29, 78, 216, .16), transparent 33%),
+      radial-gradient(circle at 15% 10%, rgba(14, 165, 233, .10), transparent 28%),
+      linear-gradient(180deg, #fbfdff 0%, #f7f9fc 100%);
+    border-top: 1px solid #eef2f6;
+    border-bottom: 1px solid #eef2f6;
+  }
+
+  .ts-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 64px;
+    align-items: center;
+    padding: 92px 0 96px;
+  }
+
+  .ts-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: var(--ts-sky);
+    color: var(--ts-blue);
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+  }
+
+  .ts-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--ts-blue);
+  }
+
+  .ts-hero h1 {
+    margin: 20px 0 20px;
+    max-width: 750px;
+    font-size: clamp(44px, 6vw, 72px);
+    line-height: .98;
+    letter-spacing: -0.055em;
+    color: var(--ts-navy);
+  }
+
+  .ts-hero-copy {
+    max-width: 690px;
+    font-size: 19px;
+    color: var(--ts-muted);
+    margin: 0 0 30px;
+  }
+
+  .ts-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .ts-trustline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    margin-top: 30px;
+    color: #475467;
+    font-size: 14px;
+    font-weight: 650;
+  }
+
+  .ts-trustline span::before {
+    content: "✓";
+    color: var(--ts-blue);
+    font-weight: 900;
+    margin-right: 7px;
+  }
+
+  .ts-square-visual {
+    min-height: 430px;
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 70% 25%, rgba(29, 78, 216, .18), transparent 34%),
+      linear-gradient(145deg, #ffffff, #eef4ff);
+    border: 1px solid #dbe5f5;
+    box-shadow: var(--ts-shadow);
+    display: grid;
+    place-items: center;
+    padding: 38px;
+  }
+
+  .ts-square-cloud {
+    width: min(360px, 100%);
+    aspect-ratio: 1;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 5px;
+    transform: rotate(-4deg);
+  }
+
+  .ts-square-cloud span {
+    display: block;
+    border-radius: 4px;
+    background: var(--ts-blue);
+    box-shadow: 0 5px 12px rgba(29, 78, 216, .12);
+  }
+
+  .ts-square-cloud span:nth-child(2n) { opacity: .82; }
+  .ts-square-cloud span:nth-child(3n) { opacity: .58; }
+  .ts-square-cloud span:nth-child(5n) { opacity: .35; }
+  .ts-square-cloud span:nth-child(7n) { transform: scale(.72); }
+
+
+
+
+
+
+
+
+
+
+
+
+  .ts-section {
+    padding: 94px 0;
+  }
+
+  .ts-section-soft {
+    background: var(--ts-bg);
+  }
+
+  .ts-section-head {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    text-align: center;
+  }
+
+  .ts-section-head h2 {
+    margin: 14px 0 14px;
+    font-size: clamp(34px, 4.5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    color: var(--ts-navy);
+  }
+
+  .ts-section-head p {
+    color: var(--ts-muted);
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .ts-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .ts-feature {
+    border: 1px solid var(--ts-line);
+    border-radius: var(--ts-radius);
+    padding: 28px;
+    background: white;
+    min-height: 260px;
+  }
+
+  .ts-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    background: var(--ts-sky);
+    color: var(--ts-blue);
+    font-size: 21px;
+    font-weight: 900;
+    margin-bottom: 20px;
+  }
+
+  .ts-feature h3 {
+    margin: 0 0 10px;
+    color: var(--ts-navy);
+    font-size: 21px;
+  }
+
+  .ts-feature p {
+    margin: 0;
+    color: var(--ts-muted);
+  }
+
+  .ts-process {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    counter-reset: ts-step;
+  }
+
+  .ts-step {
+    position: relative;
+    padding: 25px;
+    border-radius: 18px;
+    background: white;
+    border: 1px solid var(--ts-line);
+    counter-increment: ts-step;
+  }
+
+  .ts-step::before {
+    content: "0" counter(ts-step);
+    display: block;
+    font-size: 13px;
+    color: var(--ts-blue);
+    font-weight: 900;
+    margin-bottom: 14px;
+  }
+
+  .ts-step h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--ts-navy);
+  }
+
+  .ts-step p {
+    margin: 0;
+    color: var(--ts-muted);
+    font-size: 14px;
+  }
+
+  .ts-wide-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 54px;
+    align-items: center;
+    border-radius: 26px;
+    background: var(--ts-navy);
+    color: white;
+    padding: 52px;
+  }
+
+  .ts-wide-card h2 {
+    margin: 0 0 14px;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .ts-wide-card p {
+    color: #cbd5e1;
+    font-size: 17px;
+    margin: 0 0 26px;
+  }
+
+  .ts-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .ts-list-item {
+    display: flex;
+    gap: 13px;
+    align-items: flex-start;
+    padding: 16px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.07);
+  }
+
+  .ts-list-item strong {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .ts-list-item span {
+    color: #cbd5e1;
+    font-size: 14px;
+  }
+
+  .ts-check {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #1d4ed8;
+    font-weight: 900;
+  }
+
+  .ts-cta {
+    text-align: center;
+    padding: 90px 0;
+    background:
+      radial-gradient(circle at 20% 0%, rgba(29,78,216,.15), transparent 34%),
+      linear-gradient(180deg, #ffffff 0%, #f7f9fc 100%);
+  }
+
+  .ts-cta h2 {
+    margin: 0 auto 16px;
+    max-width: 760px;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+    color: var(--ts-navy);
+  }
+
+  .ts-cta p {
+    max-width: 680px;
+    margin: 0 auto 28px;
+    color: var(--ts-muted);
+    font-size: 18px;
+  }
+
+  .ts-footer {
+    border-top: 1px solid var(--ts-line);
+    padding: 28px 0 38px;
+    color: var(--ts-muted);
+    font-size: 13px;
+  }
+
+  .ts-footer-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 900px) {
+    .ts-hero-grid,
+    .ts-wide-card {
+      grid-template-columns: 1fr;
+    }
+
+    .ts-grid-3 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ts-process {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ts-navlinks a:not(.ts-button) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .ts-container {
+      width: min(100% - 24px, 1160px);
+    }
+
+    .ts-hero-grid {
+      padding: 66px 0 70px;
+      gap: 42px;
+    }
+
+    .ts-grid-3,
+    .ts-process {
+      grid-template-columns: 1fr;
+    }
+
+    .ts-section {
+      padding: 68px 0;
+    }
+
+    .ts-wide-card {
+      padding: 30px 22px;
+    }
+
+  </style>
+
+<div class="ts-site">
+  <header>
+    <div class="ts-container ts-nav">
+      <a class="ts-brand" href="#">
+        <span class="ts-brandmark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span>
+        <span>ThousandSquared</span>
+      </a>
+
+      <nav class="ts-navlinks" aria-label="Main navigation">
+        <a href="#platform">Platform</a>
+        <a href="#process">How It Works</a>
+        <a href="#services">Services</a>
+        <a class="ts-button ts-button-primary" href="mailto:info@thousandsquared.com">Request a Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="ts-hero">
+      <div class="ts-container ts-hero-grid">
+        <div>
+          <span class="ts-eyebrow"><span class="ts-eyebrow-dot"></span> Intelligent ACA Compliance</span>
+          <h1>1095-C preparation and filing, simplified from start to finish.</h1>
+          <p class="ts-hero-copy">
+            ThousandSquared gathers employee and health insurance census data, generates the appropriate Form 1095-C codes, prepares filing-ready forms, and handles federal and applicable state submissions through one seamless platform.
+          </p>
+
+          <div class="ts-actions">
+            <a class="ts-button ts-button-primary" href="mailto:info@thousandsquared.com">Schedule a Consultation</a>
+            <a class="ts-button ts-button-secondary" href="#platform">Explore the Platform</a>
+          </div>
+
+          <div class="ts-trustline">
+            <span>Intelligent coding</span>
+            <span>Federal and state filing support</span>
+            <span>Built-in validation</span>
+          </div>
+        </div>
+
+        </div>
+    </section>
+
+    <section id="platform" class="ts-section">
+      <div class="ts-container">
+        <div class="ts-section-head">
+          <span class="ts-eyebrow">One Complete Platform</span>
+          <h2>Turn time-consuming 1095-C filing into one of your simplest year-end tasks—in just minutes.</h2>
+          <p>
+            Replace spreadsheets, manual code selection, and fragmented filing steps with a streamlined process designed for employers, HR professionals, payroll providers, and benefits professionals.
+          </p>
+        </div>
+
+        <div class="ts-grid-3">
+          <article class="ts-feature">
+            <div class="ts-icon">01</div>
+            <h3>Centralized Data Collection</h3>
+            <p>
+              Import employee census, payroll, eligibility, offer-of-coverage, and enrollment information into a unified compliance workflow.
+            </p>
+          </article>
+
+          <article class="ts-feature">
+            <div class="ts-icon">02</div>
+            <h3>Intelligent 1095-C Coding</h3>
+            <p>
+              The software reviews each employee’s information and generates the appropriate Form 1095-C codes.
+            </p>
+          </article>
+
+          <article class="ts-feature">
+            <div class="ts-icon">03</div>
+            <h3>Built-In Validation</h3>
+            <p>
+              Identify missing information, inconsistent coding, affordability concerns, and filing issues before forms are transmitted.
+            </p>
+          </article>
+
+          <article class="ts-feature">
+            <div class="ts-icon">04</div>
+            <h3>Federal Filing</h3>
+            <p>
+              Prepare filing-ready 1094-C and 1095-C records and support submission through the IRS ACA Information Returns system.
+            </p>
+          </article>
+
+          <article class="ts-feature">
+            <div class="ts-icon">05</div>
+            <h3>State Filing Support</h3>
+            <p>
+              Address applicable state-level ACA reporting obligations through a coordinated filing process.
+            </p>
+          </article>
+
+          <article class="ts-feature">
+            <div class="ts-icon">06</div>
+            <h3>Employee Form Access</h3>
+            <p>
+              Provide employees with secure access to retrieve their Form 1095-C through a dedicated online portal.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="ts-section ts-section-soft">
+      <div class="ts-container">
+        <div class="ts-section-head">
+          <span class="ts-eyebrow">From Data to Filing</span>
+          <h2>A seamless process from A to Z.</h2>
+          <p>
+            ThousandSquared is designed to reduce the administrative burden of ACA reporting while improving consistency, visibility, and control.
+          </p>
+        </div>
+
+        <div class="ts-process">
+          <article class="ts-step">
+            <h3>Upload</h3>
+            <p>Provide employee, payroll, plan, eligibility, and enrollment data.</p>
+          </article>
+
+          <article class="ts-step">
+            <h3>Analyze</h3>
+            <p>The platform reviews each employee’s monthly facts and reporting requirements.</p>
+          </article>
+
+          <article class="ts-step">
+            <h3>Validate</h3>
+            <p>Potential errors, missing information, and compliance concerns are flagged for review.</p>
+          </article>
+
+          <article class="ts-step">
+            <h3>File</h3>
+            <p>Forms are prepared for IRS transmission and applicable state reporting.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="ts-section">
+      <div class="ts-container">
+        <div class="ts-wide-card">
+          <div>
+            <span class="ts-eyebrow">Beyond Software</span>
+            <h2>ACA expertise when the issue requires more than automation.</h2>
+            <p>
+              ThousandSquared also provides professional ACA consulting and IRS resolution services for employers facing complex reporting, compliance, or penalty matters.
+            </p>
+            <a class="ts-button ts-button-primary" href="mailto:info@thousandsquared.com">Discuss Your ACA Needs</a>
+          </div>
+
+          <div class="ts-list">
+            <div class="ts-list-item">
+              <div class="ts-check">✓</div>
+              <div>
+                <strong>ACA Compliance Consulting</strong>
+                <span>Guidance on measurement methods, affordability, eligibility, coding, and employer mandate exposure.</span>
+              </div>
+            </div>
+
+            <div class="ts-list-item">
+              <div class="ts-check">✓</div>
+              <div>
+                <strong>IRS ACA Notice Resolution</strong>
+                <span>Assistance reviewing and responding to ACA-related IRS notices and proposed employer shared responsibility assessments.</span>
+              </div>
+            </div>
+
+            <div class="ts-list-item">
+              <div class="ts-check">✓</div>
+              <div>
+                <strong>Historical Filing Support</strong>
+                <span>Support for corrections, late filings, data reconstruction, and prior-year compliance cleanup.</span>
+              </div>
+            </div>
+
+            <div class="ts-list-item">
+              <div class="ts-check">✓</div>
+              <div>
+                <strong>Process Review</strong>
+                <span>Evaluation of payroll, HR, benefits, and reporting workflows to identify gaps before filing season.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ts-cta">
+      <div class="ts-container">
+        <h2>Make ACA filing simpler, smarter, and more dependable.</h2>
+        <p>
+          Discover a more professional way to prepare, validate, distribute, and file Forms 1095-C.
+        </p>
+        <div class="ts-actions" style="justify-content:center;">
+          <a class="ts-button ts-button-primary" href="mailto:info@thousandsquared.com">Request a Demo</a>
+          <a class="ts-button ts-button-secondary" href="mailto:info@thousandsquared.com">Contact ThousandSquared</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ts-footer">
+    <div class="ts-container ts-footer-row">
+      <div>© 2026 ThousandSquared, Inc. All rights reserved.</div>
+      <div>ACA compliance software and professional services.</div>
+    </div>
+  </footer>
+</div>
