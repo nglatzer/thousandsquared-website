@@ -37,16 +37,16 @@
   ]
 }
 </script>
-<link rel="icon" type="image/png" sizes="128x128" href="/favicon.png">
+<link rel="icon" type="image/png" sizes="128x128" href="/portal-favicon.png">
 
 <style>
 :root {
   --navy:#102a43;
   --text:#183b56;
   --muted:#526779;
-  --green:#007c69;
-  --light:#eef7f4;
-  --border:#dce5e9;
+  --blue:#0f62fe;
+  --light:#edf4ff;
+  --border:#dce4ef;
   --background:#f7f9fb;
 }
 * {box-sizing:border-box}
@@ -77,32 +77,32 @@ header {background:white;border-bottom:1px solid var(--border)}
   display:flex;align-items:center;justify-content:space-between;
   gap:24px;padding:23px 0;
 }
-.brand {
+.brand{display:inline-flex;align-items:center;gap:10px;
   text-decoration:none;font-weight:800;font-size:1.45rem;
   letter-spacing:-.055em;white-space:nowrap;
 }
-.brand span {color:var(--green)}
+.brand .brand-name>span{color:var(--blue)}
 nav {display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 nav a {font-size:.9rem;text-decoration:none;font-weight:600}
-nav a:hover {color:var(--green)}
+nav a:hover {color:var(--blue)}
 .button {
   display:inline-flex;align-items:center;justify-content:center;
   text-decoration:none;padding:13px 22px;border-radius:7px;
   font-size:.95rem;font-weight:700;line-height:1.4;
   border:1px solid transparent;
 }
-.primary {background:var(--green);color:white}
-.primary:hover {background:#005f51;color:white}
+.primary {background:var(--blue);color:white}
+.primary:hover {background:#0c4ecb;color:white}
 .secondary {border-color:var(--border);background:white;color:var(--text)}
 .secondary:hover {background:var(--background)}
 nav .button {padding:10px 16px}
 .actions {display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 18px}
 .eyebrow {
   font-size:.76rem;font-weight:800;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--green);margin-bottom:18px;
+  text-transform:uppercase;color:var(--blue);margin-bottom:18px;
 }
 .hero {
-  background:linear-gradient(135deg,#f4f8fa,#edf6f2);
+  background:linear-gradient(135deg,#f5f8ff,#e8f0ff);
   padding:90px 0;
 }
 .hero-grid {
@@ -129,7 +129,7 @@ nav .button {padding:10px 16px}
 .number {
   display:flex;align-items:center;justify-content:center;
   flex-shrink:0;width:34px;height:34px;border-radius:50%;
-  background:var(--light);color:var(--green);
+  background:var(--light);color:var(--blue);
   font-weight:700;font-size:.8rem;
 }
 .workflow strong {display:block}
@@ -137,7 +137,7 @@ nav .button {padding:10px 16px}
 section {padding:80px 0}
 .intro {max-width:760px;margin-bottom:36px}
 .intro p {color:var(--muted);margin-bottom:0}
-.intro .eyebrow {color:var(--green);margin-bottom:18px}
+.intro .eyebrow {color:var(--blue);margin-bottom:18px}
 .grid {
   display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
   gap:22px;
@@ -148,7 +148,7 @@ section {padding:80px 0}
 }
 .feature p {font-size:.95rem;color:var(--muted);margin:0}
 .tag {
-  display:block;color:var(--green);font-size:.76rem;
+  display:block;color:var(--blue);font-size:.76rem;
   letter-spacing:.05em;font-weight:700;margin-bottom:20px;
 }
 .soft {background:var(--background)}
@@ -167,7 +167,7 @@ section {padding:80px 0}
 .service:last-child {border-bottom:0;padding-bottom:0}
 .service p {color:var(--muted);font-size:.95rem;margin:0}
 .callout {
-  background:var(--light);border:1px solid #d4e6df;
+  background:var(--light);border:1px solid #d3e1fb;
   border-radius:12px;padding:32px;
 }
 .callout p:last-child {margin-bottom:0}
@@ -181,11 +181,11 @@ section {padding:80px 0}
   display:flex;flex-direction:column;align-items:flex-start;
 }
 .option p {color:var(--muted)}
-.option .eyebrow {color:var(--green)}
+.option .eyebrow {color:var(--blue)}
 .option .button {margin-top:auto}
-.option.managed {border-color:#b7d8cc;background:var(--light)}
+.option.managed {border-color:#b9cdf7;background:var(--light)}
 .security {
-  background:linear-gradient(135deg,#eef7f4,#f7f9fb);
+  background:linear-gradient(135deg,#edf4ff,#f7f9fb);
 }
 .security .intro {max-width:800px}
 .security-contact {
@@ -202,7 +202,7 @@ section {padding:80px 0}
   max-width:610px;
 }
 .contact {background:var(--navy);color:white}
-.contact .eyebrow {color:#91ddc8}
+.contact .eyebrow {color:#a8c8ff}
 .contact p {color:#d0dce6;max-width:650px}
 .contact .split {align-items:center}
 .contact-links {
@@ -245,7 +245,7 @@ footer {
 @media(max-width:460px) {
   .grid,.steps {grid-template-columns:1fr}
   .actions .button {width:100%}
-  .brand {font-size:1.35rem}
+  .brand{display:inline-flex;align-items:center;gap:10px;font-size:1.35rem}
   h1 {font-size:2.5rem}
 }
 @media(prefers-reduced-motion:reduce) {
@@ -258,9 +258,7 @@ footer {
 
 <header>
   <div class="wrap header-row">
-    <a class="brand" href="/" aria-label="ThousandSquared home">
-      Thousand<span>Squared</span>
-    </a>
+    <a class="brand" href="/" aria-label="ThousandSquared home"><img src="/portal-logo.svg" width="40" height="28" alt=""><span class="brand-name">Thousand<span>Squared</span></span></a>
     <nav aria-label="Main navigation">
       <a href="/aca-filing-software/">ACA Software</a>
       <a href="#how-it-works">How It Works</a>
