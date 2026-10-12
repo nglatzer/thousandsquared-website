@@ -11,15 +11,15 @@
 <meta property="og:title" content="ACA Filing Pricing: DIY &amp; Managed 1095-C Filing | ThousandSquared">
 <meta property="og:description" content="Compare ThousandSquared ACA filing prices. DIY automated 1095-C filing starts at $249; managed filing starts at $495 with one applicable state included.">
 <meta property="og:url" content="https://www.thousandsquared.com/pricing/">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23102a43'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='30' font-weight='700' fill='white'%3ETS%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="128x128" href="/portal-favicon.png">
 <style>
 :root{
   --navy:#102a43;
   --text:#183b56;
   --muted:#526779;
-  --green:#007c69;
-  --light:#eef7f4;
-  --line:#dce5e9;
+  --blue:#0f62fe;
+  --light:#edf4ff;
+  --line:#dce4ef;
   --bg:#f7f9fb;
 }
 *{box-sizing:border-box}
@@ -49,33 +49,33 @@ header{border-bottom:1px solid var(--line)}
   display:flex;align-items:center;justify-content:space-between;
   padding:23px 0;gap:24px;
 }
-.brand{
+.brand{display:inline-flex;align-items:center;gap:10px;
   font-weight:800;font-size:1.45rem;
   letter-spacing:-.055em;text-decoration:none;white-space:nowrap;
 }
-.brand span{color:var(--green)}
+.brand .brand-name>span{color:var(--blue)}
 nav{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 nav a{text-decoration:none;font-size:.9rem;font-weight:600}
-nav a:hover{color:var(--green)}
-nav a[aria-current="page"]{color:var(--green)}
+nav a:hover{color:var(--blue)}
+nav a[aria-current="page"]{color:var(--blue)}
 .button{
   display:inline-flex;align-items:center;justify-content:center;
   padding:13px 22px;border:1px solid transparent;border-radius:7px;
   text-decoration:none;font-size:.95rem;font-weight:700;line-height:1.4;
 }
-.primary{background:var(--green);color:white}
-.primary:hover{background:#005f51;color:white}
+.primary{background:var(--blue);color:white}
+.primary:hover{background:#0c4ecb;color:white}
 .secondary{border-color:var(--line);background:white}
 .secondary:hover{background:var(--bg)}
 nav .button{padding:10px 16px}
 .hero{
   padding:65px 0 58px;
-  background:linear-gradient(135deg,#f4f8fa,#edf6f2);
+  background:linear-gradient(135deg,#f5f8ff,#e8f0ff);
   text-align:center;
 }
 .hero .intro{max-width:780px;margin:auto}
 .eyebrow{
-  color:var(--green);font-size:.76rem;font-weight:800;
+  color:var(--blue);font-size:.76rem;font-weight:800;
   letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;
 }
 .lead{color:var(--muted);font-size:1.1rem}
@@ -91,11 +91,11 @@ section{padding:65px 0}
   display:flex;flex-direction:column;
   background:white;
 }
-.plan.managed{border-color:#b7d8cc}
+.plan.managed{border-color:#b9cdf7}
 .plan-label{
   display:inline-block;align-self:flex-start;
   padding:5px 10px;border-radius:5px;background:var(--light);
-  color:var(--green);font-size:.76rem;font-weight:700;margin-bottom:18px;
+  color:var(--blue);font-size:.76rem;font-weight:700;margin-bottom:18px;
 }
 .plan h2{font-size:1.85rem}
 .description{color:var(--muted);min-height:82px}
@@ -119,7 +119,7 @@ th{padding-left:9px!important;padding-right:9px!important}
 .included-title{padding-top:22px;border-top:1px solid var(--line);font-size:1rem}
 .features{padding-left:20px;margin:0}
 .features li{padding:5px 0;font-size:.92rem}
-.features li::marker{color:var(--green)}
+.features li::marker{color:var(--blue)}
 .small{font-size:.85rem;color:var(--muted)}
 .responsibility{
   margin:25px 0 0;padding:17px;
@@ -151,7 +151,7 @@ input{
 .state-card table{font-size:.85rem}
 .state-note{
   margin-top:25px;padding:22px;
-  border-left:3px solid var(--green);background:var(--light);
+  border-left:3px solid var(--blue);background:var(--light);
   font-size:.9rem;
 }
 .state-note p:last-child{margin-bottom:0}
@@ -200,7 +200,7 @@ footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
 
 <header>
 <div class="wrap header-row">
-  <a class="brand" href="/">Thousand<span>Squared</span></a>
+  <a class="brand" href="/"><img src="/portal-logo.svg" width="40" height="28" alt=""><span class="brand-name">Thousand<span>Squared</span></span></a>
   <nav aria-label="Main navigation">
     <a href="/aca-filing-software/">ACA Software</a>
     <a href="/#service-options">Service Options</a>
