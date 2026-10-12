@@ -194,7 +194,7 @@ footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
   .actions .button{width:100%}
 }
 </style>
-</head>
+<style>.state-estimator{margin-top:30px;padding-top:25px;border-top:1px solid #dce4ef}.state-estimator-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.state-estimator select{font:inherit;padding:12px;border:1px solid #b4c3dc;border-radius:6px;width:100%;max-width:420px}.state-included{margin:22px 0}.combined-results{margin-top:24px}.state-estimator label{display:block;font-weight:700;font-size:.9rem;margin-bottom:7px}.state-estimator input{width:100%}@media(max-width:760px){.state-estimator-grid{grid-template-columns:1fr}}</style><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.thousandsquared.com/"},{"@type":"ListItem","position":2,"name":"Filing Prices","item":"https://www.thousandsquared.com/pricing/"}]}</script></head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
@@ -215,6 +215,7 @@ footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
 <main id="main">
 <section class="hero">
 <div class="wrap intro">
+  <p class="note" style="margin-bottom:18px"><a href="/">Home</a> / Filing Prices</p>
   <p class="eyebrow">ACA filing pricing</p>
   <h1>Two ways to file.<br>One intelligent platform.</h1>
   <p class="lead">
@@ -330,14 +331,14 @@ footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
 <div class="wrap">
   <div class="section-intro">
     <p class="eyebrow">Know your filing cost</p>
-    <h2>Calculate your federal filing price.</h2>
+    <h2>Estimate your federal and state filing price.</h2>
     <p>
       Enter the number of Forms 1095-C for one employer and tax year.
       The calculator applies the correct volume rate and tier minimum.
     </p>
   </div>
 
-  <div class="calculator">
+  <div class="calculator" id="calculator">
     <div class="calc-grid">
       <div>
         <label for="form-count">Number of Forms 1095-C</label>
@@ -368,10 +369,10 @@ footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
       </div>
     </div>
 
-    <p class="calc-note">
-      DIY totals exclude state filing add-ons. Managed Filing includes
-      one applicable state filing; additional state filings are priced
-      separately. This calculator provides a price estimate and does
+<div class="state-estimator"><h3>Add applicable state filings to your estimate.</h3><p class="help">Enter the number of forms for each state. Use 0 where no filing is needed. State form counts can differ from your federal 1095-C count; Massachusetts uses Form 1099-HC.</p><div class="state-estimator-grid"><div><label for="estimate-ca">California forms</label><input id="estimate-ca" class="state-count" type="number" min="0" max="1000000" step="1" value="0" inputmode="numeric"></div><div><label for="estimate-nj">New Jersey forms</label><input id="estimate-nj" class="state-count" type="number" min="0" max="1000000" step="1" value="0" inputmode="numeric"></div><div><label for="estimate-dc">District of Columbia forms</label><input id="estimate-dc" class="state-count" type="number" min="0" max="1000000" step="1" value="0" inputmode="numeric"></div><div><label for="estimate-ri">Rhode Island forms</label><input id="estimate-ri" class="state-count" type="number" min="0" max="1000000" step="1" value="0" inputmode="numeric"></div><div><label for="estimate-ma">Massachusetts 1099-HC forms</label><input id="estimate-ma" class="state-count" type="number" min="0" max="1000000" step="1" value="0" inputmode="numeric"></div></div><div class="state-included"><label for="included-state">State included with Managed Filing</label><select id="included-state"><option value="">Choose an applicable state</option><option value="ca">California</option><option value="nj">New Jersey</option><option value="dc">District of Columbia</option><option value="ri">Rhode Island</option><option value="ma">Massachusetts 1099-HC</option></select><p class="help">Choose which entered state filing is included. Each other state is an additional filing. Confirm the applicable service scope before authorizing filing.</p></div><p id="state-estimate-error" class="error" role="alert"></p><div class="results combined-results" aria-live="polite"><div class="result"><h3>DIY federal + states</h3><output class="total" id="diy-combined">$349.00</output><span class="detail" id="diy-state-detail">No state filings entered.</span></div><div class="result"><h3>Managed federal + states</h3><output class="total" id="managed-combined">$495.00</output><span class="detail" id="managed-state-detail">No state filings entered.</span></div></div></div>    <p class="calc-note">
+      The federal prices above are shown separately from optional state charges.
+      The combined estimates include the state forms you entered. Managed Filing includes
+      one selected applicable state filing. This calculator provides a price estimate and does
       not authorize filing or collect payment.
     </p>
     <noscript>
@@ -614,8 +615,10 @@ footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
     }
 
     document.getElementById(prefix + "-detail").textContent = explanation;
+    return total;
   }
 
+function combinedEstimate(diyFederal,managedFederal){const states=['ca','nj','dc','ri','ma'],included=document.getElementById('included-state').value,counts={};const errorNode=document.getElementById('state-estimate-error');function clear(message){errorNode.textContent=message;['diy','managed'].forEach(prefix=>{document.getElementById(prefix+'-combined').textContent='--';document.getElementById(prefix+'-state-detail').textContent=message;});}if(diyFederal===null){clear('Enter a valid federal form count first.');return;}for(const state of states){const field=document.getElementById('estimate-'+state),count=Number(field.value);if(field.value.trim()===''||!Number.isSafeInteger(count)||count<0||count>1000000){field.setAttribute('aria-invalid','true');clear('Enter a whole-number state form count from 0 to 1,000,000.');return;}field.removeAttribute('aria-invalid');counts[state]=count;}const selected=states.filter(state=>counts[state]>0);const diyStates=selected.reduce((total,state)=>total+Math.max(counts[state]*(state==='ma'?149:99),state==='ma'?12500:7500),0);document.getElementById('diy-combined').textContent=format(diyFederal+diyStates);document.getElementById('diy-state-detail').textContent='Federal '+format(diyFederal)+' + state filings '+format(diyStates)+'. State minimums apply.';if(selected.length&&(!included||!selected.includes(included))){errorNode.textContent='For a Managed Filing total, select an included state with a positive form count.';document.getElementById('managed-combined').textContent='--';document.getElementById('managed-state-detail').textContent='Choose the included state to calculate the combined managed estimate.';return;}errorNode.textContent='';const managedStates=selected.filter(state=>state!==included).reduce((total,state)=>total+Math.max(counts[state]*(state==='ma'?100:75),state==='ma'?12500:7500),0);document.getElementById('managed-combined').textContent=format(managedFederal+managedStates);document.getElementById('managed-state-detail').textContent='Federal '+format(managedFederal)+' + additional state filings '+format(managedStates)+(selected.length?'. '+document.getElementById('included-state').selectedOptions[0].textContent+' included.':'. No state filings entered.');}
   function update() {
     const count = Number(input.value);
 
@@ -632,16 +635,20 @@ footer{padding:28px 0;background:#0b2235;color:#bdcad5;font-size:.82rem}
         document.getElementById(prefix + "-detail").textContent =
           "Enter a valid form count to calculate pricing.";
       });
+      combinedEstimate(null,null);
       return;
     }
 
     input.removeAttribute("aria-invalid");
     error.textContent = "";
-    showPrice("diy", count, diyTiers);
-    showPrice("managed", count, managedTiers);
+    const diyFederal=showPrice("diy", count, diyTiers);
+    const managedFederal=showPrice("managed", count, managedTiers);
+    combinedEstimate(diyFederal,managedFederal);
   }
 
   input.addEventListener("input", update);
+  document.querySelectorAll(".state-count").forEach(field=>field.addEventListener("input",update));
+  document.getElementById("included-state").addEventListener("change",update);
   update();
 })();
 </script>
